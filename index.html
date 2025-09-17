@@ -1,291 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NaturaBelle Cosmetics — Join the Glow Club</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NaturaBelle Cosmetics - Celebrate Your Natural Glow</title>
   <style>
-    :root{
-      --bg: #f7fff6;
-      --card: #ffffff;
-      --muted: #6b6b6b;
-      --brand-dark: #256029;
-      --brand-mid: #56ab2f;
-      --brand-light: #a8e063;
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(15,23,15,0.07);
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap');
+
+    :root {
+      --primary-gradient: linear-gradient(135deg, #84fab0 0%, #2d6a4f 100%);
+      --brand-font: 'Playfair Display', serif;
+      --body-font: 'Open Sans', sans-serif;
     }
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:"Open Sans",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:var(--bg);
-      color:#222;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+    body {
+      margin: 0;
+      font-family: var(--body-font);
+      background: #f9fff9;
+      color: #333;
+      text-align: center;
     }
 
-    .page {
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:40px 20px;
+    header {
+      padding: 60px 20px;
+      background: var(--primary-gradient);
+      color: white;
     }
 
-    .wrap {
-      width:100%;
-      max-width:980px;
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:32px;
-      align-items:center;
+    header h1 {
+      font-family: var(--brand-font);
+      font-size: 2.8rem;
+      margin-bottom: 10px;
     }
 
-    /* Mobile layout */
-    @media (max-width:880px){
-      .wrap { grid-template-columns: 1fr; padding:0 8px; }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.95;
     }
 
-    /* Left column (hero) */
-    .hero {
-      padding:36px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
-    .brand {
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin-bottom:22px;
+    .container h2 {
+      font-family: var(--brand-font);
+      margin-bottom: 10px;
+      color: #2d6a4f;
     }
 
-    .logo-badge{
-      width:64px;
-      height:64px;
-      border-radius:12px;
-      background:linear-gradient(135deg, var(--brand-light), var(--brand-mid));
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-      font-weight:700;
-      font-family:"Playfair Display",serif;
-      font-size:20px;
-      box-shadow:0 6px 18px rgba(86,171,47,0.14);
-    }
-
-    h1{
-      margin:0 0 12px 0;
-      font-family:"Playfair Display", serif;
-      font-size:34px;
-      color:var(--brand-dark);
-      line-height:1.02;
-    }
-
-    .tagline {
-      margin:0 0 20px 0;
-      color:var(--muted);
-      font-size:16px;
-      font-weight:300;
-    }
-
-    .lead {
-      color:#223322;
-      margin:0 0 22px 0;
-      font-size:16px;
-    }
-
-    .benefits {
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-
-    .benefit {
-      background: linear-gradient(180deg, rgba(86,171,47,0.06), rgba(168,224,99,0.04));
-      border-radius:10px;
-      padding:10px 12px;
-      font-size:14px;
-      color:var(--brand-dark);
-      display:flex;
-      gap:10px;
-      align-items:center;
-      box-shadow: 0 3px 10px rgba(10,20,10,0.02);
-    }
-
-    .benefit .emoji { font-size:18px }
-
-    /* Right column (signup) */
-    .card {
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:28px;
-      box-shadow:var(--shadow);
-      border: 1px solid rgba(34,68,34,0.04);
-    }
-
-    .card h3 {
-      margin:0 0 8px 0;
-      font-family:"Playfair Display",serif;
-      color:var(--brand-dark);
-      font-size:20px;
-    }
-
-    .card p { margin:0 0 16px 0; color:var(--muted); font-size:14px }
-
-    /* fallback custom form (visually hidden if Klaviyo renders) */
-    .fallback-form {
-      display:block;
-    }
-    .fallback-form .row { display:flex; gap:10px; margin-bottom:10px; }
-    .fallback-form input {
-      width:100%;
-      padding:12px 12px;
-      border-radius:10px;
-      border:1px solid #e6efe6;
-      font-size:14px;
-      outline:none;
-    }
-    .fallback-form button {
-      width:100%;
-      padding:12px;
-      border-radius:999px;
-      border:none;
-      background:linear-gradient(135deg,var(--brand-mid),var(--brand-light));
-      color:white;
-      font-weight:600;
-      cursor:pointer;
-      box-shadow:0 8px 20px rgba(86,171,47,0.12);
-    }
-
-    .small {
-      font-size:12px;
-      color:#8b8b8b;
-      margin-top:12px;
-    }
-
-    /* subtle info */
-    .trust {
-      margin-top:14px;
-      font-size:13px;
-      color:#7a7a7a;
+    .note {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="wrap">
 
-      <!-- HERO / Brand message -->
-      <section class="hero" aria-labelledby="hero-heading">
-        <div class="brand">
-          <div class="logo-badge">NB</div>
-          <div>
-            <div style="font-weight:700;color:var(--brand-dark);">NaturaBelle Cosmetics</div>
-            <div style="font-size:13px;color:var(--muted);">Celebrate Your Natural Glow</div>
-          </div>
-        </div>
+  <header>
+    <h1>NaturaBelle Cosmetics</h1>
+    <p>✨ Celebrate Your Natural Glow ✨</p>
+  </header>
 
-        <h1 id="hero-heading">Glow confidently with gentle, nature-powered care</h1>
+  <div class="container">
+    <h2>Join Our Beauty Circle</h2>
+    <p>Get exclusive tips, natural skincare secrets, and <strong>10% off your first order</strong> when you sign up!</p>
 
-        <p class="tagline">Clean ingredients. Visible results. Designs that respect you and the planet.</p>
+    <!-- ✅ Klaviyo Embedded Form -->
+    <div class="klaviyo-form-XkwEjn"></div>
+    <script src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=XhnrUi" async></script>
+    <!-- ✅ End Klaviyo Embed -->
 
-        <p class="lead">Join thousands of customers who receive exclusive tips, new launches, and member-only offers. Sign up — your glow journey starts here.</p>
-
-        <ul class="benefits" aria-hidden="false">
-          <li class="benefit"><span class="emoji">🌿</span> Natural & safe formulations</li>
-          <li class="benefit"><span class="emoji">✨</span> Early access to launches</li>
-          <li class="benefit"><span class="emoji">🎁</span> Member-only discounts</li>
-        </ul>
-
-      </section>
-
-      <!-- SIGNUP CARD -->
-      <aside class="card" aria-labelledby="signup-heading">
-        <h3 id="signup-heading">Join the Glow Club ✨</h3>
-        <p>Sign up for exclusive skincare tips, early access, and a welcome offer.</p>
-
-        <!-- Klaviyo embed placeholder — KEEP EXACTLY AS IS -->
-        <div class="klaviyo-form-XkwEjn" aria-label="Klaviyo signup form placeholder"></div>
-        <script src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=XhnrUi" async></script>
-
-        <!-- Fallback simple form (will be used only if Klaviyo script fails) -->
-        <form id="fallback" class="fallback-form" style="margin-top:14px;" onsubmit="handleFallbackSubmit(event)">
-          <div class="row">
-            <input type="text" id="fname" name="firstName" placeholder="First name" autocomplete="given-name">
-          </div>
-          <div class="row">
-            <input type="email" id="email" name="email" placeholder="Email address" required autocomplete="email">
-          </div>
-          <div class="row">
-            <button type="submit">Get My Glow Offer</button>
-          </div>
-          <div class="small">We respect your privacy. Unsubscribe anytime.</div>
-        </form>
-
-        <div class="trust" aria-hidden="true">No spam • Secure • 10% welcome code after sign up.</div>
-      </aside>
-
-    </div>
+    <p class="note">Your details are safe with us. Unsubscribe anytime.</p>
   </div>
 
-  <script>
-    // Hide fallback when Klaviyo form succeeds in rendering.
-    // Klaviyo writes its form into the placeholder div; when that happens, we hide the fallback.
-    (function() {
-      const placeholderSelector = '.klaviyo-form-XkwEjn';
-      const fallback = document.getElementById('fallback');
-
-      function checkForKlaviyo() {
-        const placeholder = document.querySelector(placeholderSelector);
-        if (!placeholder) return;
-
-        // If placeholder has children (Klaviyo injected content), hide fallback.
-        if (placeholder.children.length > 0) {
-          if (fallback) fallback.style.display = 'none';
-        } else {
-          // keep checking a few times in case klaviyo loads async
-          // check every 500ms up to 8 times
-          let attempts = 0;
-          const interval = setInterval(() => {
-            attempts++;
-            if (placeholder.children.length > 0) {
-              if (fallback) fallback.style.display = 'none';
-              clearInterval(interval);
-            }
-            if (attempts >= 8) clearInterval(interval);
-          }, 500);
-        }
-      }
-
-      // Run on load and a short delay for async loads
-      window.addEventListener('load', () => { setTimeout(checkForKlaviyo, 300); });
-
-      // Fallback form handler — simple local behavior (no backend).
-      // Replace with your own endpoint or Klaviyo API call if desired.
-      window.handleFallbackSubmit = function(e) {
-        e.preventDefault();
-        const fname = document.getElementById('fname').value.trim();
-        const email = document.getElementById('email').value.trim();
-        if (!email) {
-          alert('Please enter your email.');
-          return;
-        }
-        // Show a quick thank you message and (optionally) a temporary discount code
-        // NOTE: This does not submit to Klaviyo. Use Klaviyo embed or API for real capture.
-        fallback.innerHTML = '<p style="font-weight:600;color:var(--brand-dark)">Thanks! Check your inbox for a welcome message.</p>';
-      };
-    })();
-  </script>
 </body>
 </html>
